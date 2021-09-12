@@ -7,15 +7,15 @@ for k = 1 : Length_Names
     % 连接路径和文件名得到完整的文件路径
     K_Trace = strcat(Path, FileNames(k));
     % 读取数据（因为这里是.txt格式数据，所以直接用load()函数)
-    
+    need_move=false;
     for j=1:length(FileNames{k})
         if FileNames{k}(j)==' ' || FileNames{k}(j)=='(' || FileNames{k}(j)==')' || FileNames{k}(j)=='™'
             New{k}(j)='_';
+            need_move=true;
         end
     end
     
-    if FileNames{k}(1)=='_'
-        New{k}(1)='A';
+    if need_move
         movefile(FileNames{k},New{k});
     end
     
