@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Jupyter 不能运行 cdo 的解决办法</title>
+      <link href="2021/11/16/mac211116/"/>
+      <url>2021/11/16/mac211116/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>记一下之前在 Mac 上用别人的 python 程序踩的坑，虽然记不清了。文末有吐槽。<a id="more"></a></p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 Jupyter 里调用 cdo 会报错，大概是 <code>FileNotFoundError: [Errno 2] No such file or directory</code>。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>修改<br><code>/opt/anaconda3/envs/cmip/share/jupyter/kernels/python3/kernel.json</code><br>为</p><pre><code>&#123;&quot;argv&quot;: [  &quot;/opt/anaconda3/envs/cmip/bin/python&quot;,  &quot;-m&quot;,  &quot;ipykernel_launcher&quot;,  &quot;-f&quot;,  &quot;&#123;connection_file&#125;&quot;],&quot;display_name&quot;: &quot;Python 3 (ipykernel)&quot;,&quot;language&quot;: &quot;python&quot;,&quot;metadata&quot;: &#123;  &quot;debugger&quot;: true&#125;,&quot;env&quot;:&#123;  &quot;PATH&quot;:&quot;$PATH:/opt/anaconda3/envs/cmip/bin&quot;&#125;&#125;</code></pre><p>重启 Kernal。</p><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><p>python-cdo is just a binding, it requires cdo binary from the software tree. When you start your own kernel in jupyterhub cdo is not loaded per default. <a href="https://jupyterhub.gitlab-pages.dkrz.de/jupyterhub-docs/posts/2020/nosuchfile.html">（参考网页）</a></p><h2 id="曲折的历程"><a href="#曲折的历程" class="headerlink" title="曲折的历程"></a>曲折的历程</h2><p>查了半天bin文件，都搜到了<code>/opt/anaconda3/pkgs/cdo-1.9.10-h78eeb7e_3/bin</code>，<code>/opt/anaconda3/envs/cmip/conda-meta/cdo-1.9.10-h78eeb7e_3.json</code>。最终是解决了。</p><p>我记得还有个有关并行处理的 bug， 因为 Mac 和 Linux 对子进程的管理标准不一样，需要改成单个 python 脚本把变量声明放到 main 函数里。</p><h2 id="今天的吐槽"><a href="#今天的吐槽" class="headerlink" title="今天的吐槽"></a>今天的吐槽</h2><p>组里要用 Fortran，师兄推荐了 Understand，官网上说有教育邮箱就能注册教育 License，于是兴致勃勃地注册了，结果提示我清华的邮箱匹配不到教育机构？？然后人工客服先是发了商业评估申请要求，然后说是学生后又发了“中国版”的申请要求，居然需要我的电话号码、身份证、学生证；导师的电话号码、身份证、工作证信息！这明显是针对！</p><p>明明一般情况是给 edu 发个邮件点一下验证链接就行的事，我都看到 csdn 上有人发了。</p><p>然后看到 Github 学生包里有个 Jetbrains，据说里面有个 CLion 写 C 很好用，我也去注册绑定了 Github，结果申请的时候直接就提示清华邮箱被 Blocked 了！摆明了欺负人是吧？搞的心情很不爽，火大。___*( ￣皿￣)/#____ 然后本科邮箱不能用了，也找不到邮件转移到校友邮箱的通知，校友邮箱也找不到。</p><p>唯一有用的就是 Terminus 了。</p><p>大概是为了吐槽这些才发的这篇，顺便把之前的踩坑更一下。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 经验 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mirror 2021.10 月报</title>
       <link href="2021/11/02/mirror-2110/"/>
       <url>2021/11/02/mirror-2110/</url>
