@@ -24,13 +24,18 @@
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="地球科学">
 <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1651421992911">
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1652976527711">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1652976527711">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="mdui-drawer-body-left">
   
@@ -248,7 +253,7 @@
   </div>
 
   <article>
-    <p>剪切速率，概率分布？<a id="more"></a></p>
+    <p>剪切速率，概率分布？<span id="more"></span></p>
 <h2 id="Strain-rate-应变速率-deformation-rate-变形速率"><a href="#Strain-rate-应变速率-deformation-rate-变形速率" class="headerlink" title="Strain rate 应变速率 / deformation rate 变形速率"></a>Strain rate 应变速率 / deformation rate 变形速率</h2><p>根据论文中的定义，<br>$u_x=\frac{1}{A}\oint u \text{d}y \approx \frac{1}{A} \sum_{i=1}^{n} \frac{1}{2}\left ( u_{i+1}+u_i\right )\left ( y_{i+1}-y_i\right )$,<br>$u_y=-\frac{1}{A}\oint u \text{d}x$,<br>$v_x=\frac{1}{A}\oint v \text{d}y$,<br>$v_y=-\frac{1}{A}\oint v \text{d}x$,</p>
 <p>剪切率 $\dot{\varepsilon}_{\textrm{shear}}=\sqrt{\left ( u_{x}-v_{y}\right )^2+\left ( u_{y}+v_{x}\right )^2}$,<br>散度率 $\dot{\varepsilon }_{\textrm{div}} = u_x+v_y $,<br>总应变率 $\dot{\varepsilon }_{\textrm{tot}}=\sqrt{\dot{\varepsilon }_{\textrm{shear}}^{2}+\dot{\varepsilon }_{\textrm{div}}^{2}}$。</p>
 <p>Strain rate is the rate of deformation caused by strain in a material within a corresponding time. This gauges the rate where distances of materials change within a respective period of time.</p>
@@ -351,14 +356,17 @@ var dsqjs = new DisqusJS({
 	hljs.initHighlightingOnLoad();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
 
 
 
-<script src="/js/app.js?v=1651421992914"></script>
+<script src="/js/app.js?v=1652976527714"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
 	$(".justified-gallery").justifiedGallery({
 		rowHeight: 160,

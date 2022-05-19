@@ -24,13 +24,18 @@
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
   
-  <link rel="stylesheet" href="/css/style.css?v=1651421991264">
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1652976527608">
+  
+  <link rel="stylesheet" href="/css/style.css?v=1652976527608">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body class="mdui-drawer-body-left">
   
@@ -248,7 +253,7 @@
   </div>
 
   <article>
-    <p>这章是重点，圈起来- - <a id="more"></a></p>
+    <p>这章是重点，圈起来- - <span id="more"></span></p>
 <h2 id="Ch10-认识与学习-BASH"><a href="#Ch10-认识与学习-BASH" class="headerlink" title="Ch10 认识与学习 BASH"></a>Ch10 认识与学习 BASH</h2><h3 id="Bash-shell-的功能"><a href="#Bash-shell-的功能" class="headerlink" title="Bash shell 的功能"></a>Bash shell 的功能</h3><ol>
 <li>history ~/.bash_history 记录前一次登入以前所执行过的指令，可查询曾经做过的举动 <code>history n</code>查n条, <code>-c</code>清空, <code>-arw</code>与文件读取历史中有关。 <code>!</code>可以跟数字n表示执行第n条命令, 也可以跟部分指令s,由最近的指令向前搜寻『指令串开头为 s』的指令，并执行</li>
 <li>alias 命令别名设定功能 <code>alias lm=&#39;ls -al&#39;</code>. 取消则用<code>unalias lm</code></li>
@@ -501,14 +506,17 @@ var dsqjs = new DisqusJS({
 	hljs.initHighlightingOnLoad();
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+<script src="/lib/mdui_043tiny/mdui.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
+<script src="/lib/fancybox/fancybox.umd.js"></script>
 
 
 
-<script src="/js/app.js?v=1651421991267"></script>
+<script src="/js/app.js?v=1652976527612"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
 <script>
 	$(".justified-gallery").justifiedGallery({
 		rowHeight: 160,
