@@ -80,9 +80,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1692465771061">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1692502512089">
   
-  <link rel="stylesheet" href="/css/style.css?v=1692465771061">
+  <link rel="stylesheet" href="/css/style.css?v=1692502512089">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -395,7 +395,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1692465771063"></script>
+<script src="/js/app.js?v=1692502512093"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -421,6 +421,21 @@ var dsqjs = new DisqusJS({
 
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 
 </html>
