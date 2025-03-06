@@ -31,9 +31,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660846">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254309028">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660846">
+  <link rel="stylesheet" href="/css/style.css?v=1741254309028">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -215,7 +215,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -261,13 +261,15 @@
 </li>
 <li><p>在Linux中解压，执行<code>make CC=gcc BINARY=64 TARGET=NEHALEM</code>失败</p>
 <pre><code> ../libgoto2_nehalem-r1.13.a(ssymv_U.o): error adding symbols: 错误的值
- collect2: error: ld returned 1 exit status</code></pre>
+ collect2: error: ld returned 1 exit status
+</code></pre>
 <p>继续执行</p>
 <pre><code> gedit  f_check
  # 298行改为如下：
  # print MAKEFILE &quot;FEXTRALIB=$linker_L -lgfortran -lm -lquadmath -lm $linker_a\n&quot;;
  make clean
- make CC=gcc BINARY=64 TARGET=NEHALEM USE_OPENMP=1 INTERFACE64=1</code></pre>
+ make CC=gcc BINARY=64 TARGET=NEHALEM USE_OPENMP=1 INTERFACE64=1
+</code></pre>
 <p>成功！</p>
 <pre><code> GotoBLAS build complete.
 
@@ -276,25 +278,33 @@
    BINARY           ... 64bit                 
    C compiler       ... GCC  (command line : gcc)
    Fortran compiler ... G77  (command line : g77)
-   Library Name     ... libgoto2_nehalem-r1.13.a (Single threaded)  </code></pre>
+   Library Name     ... libgoto2_nehalem-r1.13.a (Single threaded)  
+</code></pre>
 </li>
 </ol>
 <h3 id="安装MPICH"><a href="#安装MPICH" class="headerlink" title="安装MPICH"></a>安装MPICH</h3><ol>
 <li>官方下载网站下载：<a target="_blank" rel="noopener" href="https://www.mpich.org/downloads/">mpich-3.3.2.tar.gz</a></li>
 <li>解压，新建文件夹<code>mpich</code>作为安装文件夹<pre><code>  cd mpich-3.3.2/
- ./configure --prefix=/home/riolu/HPL/mpich</code></pre>
-提示无Fortran 77 compiler，切换至管理员安装<pre><code> sudo apt-get install gfortran</code></pre>
-（虽然但是，我也不会Fortran啊……<br>提示无C++ compiler，再切换至管理员安装……<pre><code> sudo apt-get install g++</code></pre>
+ ./configure --prefix=/home/riolu/HPL/mpich
+</code></pre>
+提示无Fortran 77 compiler，切换至管理员安装<pre><code> sudo apt-get install gfortran
+</code></pre>
+（虽然但是，我也不会Fortran啊……<br>提示无C++ compiler，再切换至管理员安装……<pre><code> sudo apt-get install g++
+</code></pre>
 </li>
 <li>好了，接下来<pre><code> make
  make install
- gedit ~/.bashrc</code></pre>
+ gedit ~/.bashrc
+</code></pre>
 在后面加上<pre><code> export PATH=/home/riolu/HPL/mpich/bin:$PATH
  export MANPATH=/home/riolu/HPL/mpich/man:$MANPATH
- export LD_LIBRARY_PATH=/home/riolu/HPL/mpich/lib:$LD_LIBRARY_PATH //不知要不要</code></pre>
-保存后<pre><code> source ~/.bashrc</code></pre>
+ export LD_LIBRARY_PATH=/home/riolu/HPL/mpich/lib:$LD_LIBRARY_PATH //不知要不要
+</code></pre>
+保存后<pre><code> source ~/.bashrc
+</code></pre>
 看下$PATH<pre><code> $ echo $PATH
- /home/riolu/HPL/mpich/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games</code></pre>
+ /home/riolu/HPL/mpich/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+</code></pre>
 </li>
 <li>测试<pre><code> riolu@sinki-virtual-machine:~/HPL/mpich-3.3.2$ mpirun -np 10 ./examples/cpi
  Process 4 of 10 is on sinki-virtual-machine
@@ -308,7 +318,8 @@
  Process 6 of 10 is on sinki-virtual-machine
  Process 9 of 10 is on sinki-virtual-machine
  pi is approximately 3.1415926544231256, Error is 0.0000000008333325
- wall clock time = 0.134519</code></pre>
+ wall clock time = 0.134519
+</code></pre>
 成功！</li>
 </ol>
 <h2 id="HPL安装与编译"><a href="#HPL安装与编译" class="headerlink" title="HPL安装与编译"></a>HPL安装与编译</h2><ol>
@@ -328,25 +339,30 @@
  CC           = $(HOME)/HPL/mpich/bin/mpicc
  CCFLAGS      = $(HPL_DEFS) -fomit-frame-pointer -fopenmp -O3 -funroll-loops
  LINKER       = $(HOME)/HPL/mpich/bin/mpif77
- LINKFLAGS = $(CCFLAGS) </code></pre>
+ LINKFLAGS = $(CCFLAGS) 
+</code></pre>
 <p>执行</p>
-<pre><code> make arch=my</code></pre>
+<pre><code> make arch=my
+</code></pre>
 </li>
 <li><p>此时查看安装文件夹下bin，会看到有my文件夹，里面有<code>HPL.dat</code>，<code>xhpl</code>，安装完成。</p>
 </li>
 </ol>
 <p>结果运行<code>mpirun -np 2  ./xhpl</code>得到报错信息？？</p>
-<pre><code>** On entry to DTRSM  parameter number  9 had an illegal value</code></pre>
+<pre><code>** On entry to DTRSM  parameter number  9 had an illegal value
+</code></pre>
 <p>死了。失败，重新编译前加入<code>make arch=my clean_arch_all</code></p>
 <p>不伺候了，告辞！</p>
 <h2 id="集群同步设置"><a href="#集群同步设置" class="headerlink" title="集群同步设置"></a>集群同步设置</h2><h3 id="psftp传文件"><a href="#psftp传文件" class="headerlink" title="psftp传文件"></a>psftp传文件</h3><pre><code>    psftp&gt; open sinki@10.201.0.6
     Using username &quot;sinki&quot;.
     sinki@10.201.0.6&#39;s password:
     Remote working directory is /home/sinki
-    psftp&gt;put F:\Share\GotoBLAS2-1.13.tar.gz</code></pre>
+    psftp&gt;put F:\Share\GotoBLAS2-1.13.tar.gz
+</code></pre>
 <p>其他用法参考:<a target="_blank" rel="noopener" href="https://kjsolo.wordpress.com/2010/03/08/psftp%E7%94%A8%E6%B3%95/">PSFTP用法</a></p>
 <h3 id="Xming图形界面和jupyter挂起"><a href="#Xming图形界面和jupyter挂起" class="headerlink" title="Xming图形界面和jupyter挂起"></a>Xming图形界面和jupyter挂起</h3><pre><code>    nautilus
-    nohup jupyter notebook --allow-root &gt; jupyter.log 2&gt;&amp;1 &amp;</code></pre>
+    nohup jupyter notebook --allow-root &gt; jupyter.log 2&gt;&amp;1 &amp;
+</code></pre>
 <hr>
 <p><em>修改日期：2020年12月4日</em></p>
 
@@ -426,7 +442,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660850"></script>
+<script src="/js/app.js?v=1741254309034"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -466,7 +482,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

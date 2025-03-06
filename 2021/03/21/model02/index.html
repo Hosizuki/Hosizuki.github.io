@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://hosizuki.github.io/2021/03/21/model02/1.png">
 <meta property="og:image" content="https://hosizuki.github.io/2021/03/21/model02/2.png">
 <meta property="article:published_time" content="2021-03-21T15:57:20.000Z">
-<meta property="article:modified_time" content="2021-04-10T04:11:42.379Z">
+<meta property="article:modified_time" content="2021-04-10T04:11:42.000Z">
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="地球科学">
 <meta property="article:tag" content="模式">
@@ -35,9 +35,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660781">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254308980">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660781">
+  <link rel="stylesheet" href="/css/style.css?v=1741254308980">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -219,7 +219,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -272,16 +272,20 @@
 <li><a target="_blank" rel="noopener" href="http://www.ncl.ucar.edu/Document/Manuals/NCL_to_Python/Transition_Guide_NCL_PyNGL.pdf">ncl2py Guide</a></li>
 </ul>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>NCL 适用于 MacOS，Linux 和运行 Windows 10 Linux 子系统的 Windows 系统。换新笔记本后我安装了 WSL，所以这里在 WSL 中安装。<br>首先要安装 conda，这里按提示安装了 miniconda。（难怪我在超算的<code>.bashrc</code>里只看到了 miniconda，没找到 NCL，但找到了 NCO……<br>然后按照建议在 conda 环境下安装 NCL，新环境为 ncl_stable。</p>
-<pre><code>conda create -n ncl_stable -c conda-forge ncl</code></pre>
+<pre><code>conda create -n ncl_stable -c conda-forge ncl
+</code></pre>
 <p>每次进入该环境，执行</p>
-<pre><code>source activate ncl_stable</code></pre>
+<pre><code>source activate ncl_stable
+</code></pre>
 <p>要显示图形化界面，首先启动 Xming 开启 X11 转接…… 然后执行下面的命令检测</p>
 <pre><code>ncl -V
 ncl $NCARG_ROOT/lib/ncarg/nclex/gsun/gsun02n.ncl
-ncl $NCARG_ROOT/lib/ncarg/nclex/nug/NUG_multi_timeseries.ncl</code></pre>
+ncl $NCARG_ROOT/lib/ncarg/nclex/nug/NUG_multi_timeseries.ncl
+</code></pre>
 <p>就可以看到很漂亮的图啦！</p>
 <p>于是又登上超算找<code>conda</code>，结果不能直接用。在<code>.conda</code>文件夹里有个<code>environment.txt</code>里明明看到了有<code>anaconda</code>和 ncl_stable 环境。翻bashrc发现有句</p>
-<pre><code>alias wanwb=&#39;source /home/export/online3/cesm06/wanwb/.bashrc&#39;</code></pre>
+<pre><code>alias wanwb=&#39;source /home/export/online3/cesm06/wanwb/.bashrc&#39;
+</code></pre>
 <p>果断执行<code>wanwb</code>，可以用 conda 了！可以用 ncl！<br><img style="display: inline-block; width: 70%; max-width: 70%; height: auto;" src="1.png" /></p>
 <p>回到 WSL，执行<code>ng4ex gsun01n</code>提示 /bin/csh: bad interpreter: No such file or directory 查一下需要安装 C-shell。再次执行，可以看到一些折线图，且工作路径下多了一个<code>gsun01n.ncl</code>文件。</p>
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>由于使用了 ncl_stable 环境，就不用再设置变量<code>NCARG_ROOT</code>和路径<code>$NCARG_ROOT/bin</code>了。<br>在家目录下放置<code>.hluresfile</code>文件来个性化设置 NCL 图形环境。<br>关于代码编辑的高亮，我用了 vscode 连接 WSL，打开 ncl 文件后安装 NCL 扩展即可。不得不说这真的好用。</p>
@@ -292,15 +296,18 @@ ncl $NCARG_ROOT/lib/ncarg/nclex/nug/NUG_multi_timeseries.ncl</code></pre>
 <h2 id="几天后"><a href="#几天后" class="headerlink" title="几天后"></a>几天后</h2><p>把手册大致过了一遍，对某些语法感到不适外，在手册最后看到了一章 PyNGL 和 PyNIO 的。于是很疑惑地到官网再一看……<br>好家伙，NCAR 已经不更新 NCL 了，官方都转 python 了<br>那我还学个**<br>（一开始我还以为 NCL 官网的 Python 是关于 conda 安装的<br>又登集群确认了一遍，conda 里同时有<code>ncl_stable</code>和<code>pyn_env</code>两个环境…… 后者就是 PyNGL 和 PyNIO ……<br>啊…… 应该早点问师姐要代码看看是啥样的，如果都是 python 那我……</p>
 <p>（3.22：问了师姐，他们那篇论文用的代码基本是 matlab…… 而我没能找到机器上有没有 matlab……）<br>（续：matlab在另一个账号下…… 代码放机器上被清了…… ）</p>
 <h2 id="PyNGL-amp-PyNIO"><a href="#PyNGL-amp-PyNIO" class="headerlink" title="PyNGL &amp; PyNIO"></a>PyNGL &amp; PyNIO</h2><pre><code>conda create --name pyn_env --channel conda-forge pynio pyngl
-source activate pyn_env</code></pre>
+source activate pyn_env
+</code></pre>
 <p>报错了，可能版本不兼容。删除环境重建</p>
 <pre><code>conda env remove --name pyn_env
 conda create --name pyn_env --channel conda-forge/label/cf201901 xarray netcdf4 scipy pyngl pynio
-source activate pyn_env</code></pre>
+source activate pyn_env
+</code></pre>
 <p>最后清理下安装的包</p>
 <pre><code>conda clean -a
 conda clean -p
-conda clean -t</code></pre>
+conda clean -t
+</code></pre>
 <p><em>创建日期：2021年3月18日</em><br><em>更新日期：2021年3月30日</em></p>
 
   </article>
@@ -379,7 +386,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660785"></script>
+<script src="/js/app.js?v=1741254308986"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -419,7 +426,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

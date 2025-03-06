@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://hosizuki.github.io/2021/06/04/sitesearch/search.png">
 <meta property="og:image" content="https://hosizuki.github.io/2021/06/04/sitesearch/search2.png">
 <meta property="article:published_time" content="2021-06-04T05:58:00.000Z">
-<meta property="article:modified_time" content="2021-06-04T11:39:33.219Z">
+<meta property="article:modified_time" content="2021-06-04T11:39:32.000Z">
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="建站">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,13 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660669">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254308918">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660669">
+  <link rel="stylesheet" href="/css/style.css?v=1741254308918">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
-<meta name="generator" content="Hexo 5.4.2"><script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
+<meta name="generator" content="Hexo 5.4.2"><script src="/assets/js/Meting.min.js" class="meting-script-marker"></script>
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -219,7 +219,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -270,7 +270,8 @@
    path: ./public/search.xml
    field: post
    format: html
-   limit: 10000</code></pre>
+   limit: 10000
+</code></pre>
 </li>
 <li><p>删除<code>\themes\nexmoe\_config.yml</code>中的<code>search</code>字段。</p>
 </li>
@@ -283,7 +284,8 @@
          &lt;/form&gt;
          &lt;div id=&quot;local-search-result&quot; &gt;&lt;/div&gt;
      &lt;/div&gt;
- &lt;/div&gt;</code></pre>
+ &lt;/div&gt;
+</code></pre>
 </li>
 <li><p>在<code>\themes\nexmoe\source\js\app.js</code>中添加<code>searchFunc</code>。</p>
 <pre><code> // 我的搜索
@@ -394,7 +396,8 @@
        &#125;);
      &#125;
    &#125;);
- &#125;</code></pre>
+ &#125;
+</code></pre>
 </li>
 <li><p>在<code>\themes\nexmoe\layout\_partial\after-footer.ejs</code>中添加代码</p>
 <pre><code> &lt;!-- 我的搜索 --&gt;
@@ -407,7 +410,8 @@
      var path = &quot;&lt;%= config.root %&gt;&quot; + search_path;
      searchFunc(path, &#39;local-search-input&#39;, &#39;local-search-result&#39;);
    &lt;/script&gt;
- &lt;% &#125; %&gt;</code></pre>
+ &lt;% &#125; %&gt;
+</code></pre>
 </li>
 </ol>
 <p>这样一来就可以搜索了！但是样式有限问题，内容没有换行而且很窄，于是修改样式。可惜不懂<code>html</code>，调宽后会被右侧的栏挡住，嘛……</p>
@@ -469,7 +473,8 @@
           right: 18px;
           top: 10px;
       &#125;
-  &#125;</code></pre>
+  &#125;
+</code></pre>
 <h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p>齐了！先上搜索效果：</p>
 <h4 id="正常样式"><a href="#正常样式" class="headerlink" title="正常样式"></a>正常样式</h4><img style="display: inline-block; width: 40%; max-width: 40%; height: auto;" src="search.png"/>
 
@@ -516,14 +521,16 @@ $color =  #6495ED
     a:nth-child(7n+1) &#123;
         background-color: rgba(65,105,225,0.15);
         color: rgba(65,105,225,1);
-...</code></pre>
+...
+</code></pre>
 <h4 id="themes-nexmoe-source-css-partial-archives-styl"><a href="#themes-nexmoe-source-css-partial-archives-styl" class="headerlink" title="\themes\nexmoe\source\css_partial\archives.styl"></a>\themes\nexmoe\source\css_partial\archives.styl</h4><pre><code>...
 .nexmoe-archives li::after &#123;
     content: &quot;&quot;;
     height: 100%;
     width: 2px;
     background: rgba(65,105,225, 0.2);
-...</code></pre>
+...
+</code></pre>
 <h4 id="themes-nexmoe-source-css-partial-article-styl"><a href="#themes-nexmoe-source-css-partial-article-styl" class="headerlink" title="\themes\nexmoe\source\css_partial\article.styl"></a>\themes\nexmoe\source\css_partial\article.styl</h4><pre><code>...
 article &gt; ol &gt; li::before &#123;
     content: counter(item);
@@ -549,7 +556,8 @@ article ul li::after &#123;
     height: 100%;
     width: 2px;
     background: rgba(65,105,225, 0.2);
-...</code></pre>
+...
+</code></pre>
 <p>颜色改成自己喜欢的就好了！</p>
 <h2 id="音乐播放器"><a href="#音乐播放器" class="headerlink" title="音乐播放器"></a>音乐播放器</h2><p>播放器的样式看不顺眼很久了，今天花一下午搞掉了…… 直接用<code>aplayer</code>，代码如下</p>
 <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;\assets\css\APlayer.min.css&quot; class=&quot;aplayer-style-marker&quot;&gt;
@@ -575,16 +583,18 @@ article ul li::after &#123;
   &#125;);
   window.aplayers || (window.aplayers = []);
   window.aplayers.push(ap);
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;
+</code></pre>
 <p>也启用了<code>meting</code>。但有些歌没版权就没办法了。<br>在根目录的配置文件里加入</p>
 <pre><code>aplayer:
-  meting: true</code></pre>
+  meting: true
+</code></pre>
 <link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 
 
 
-    <div id="aplayer-DcdGKihp" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-XlrEoTUf" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="6762505277" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="true" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"
     ></div>
 
@@ -670,7 +680,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660673"></script>
+<script src="/js/app.js?v=1741254308920"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -710,7 +720,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

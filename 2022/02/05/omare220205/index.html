@@ -21,7 +21,7 @@
 <meta property="og:description" content="模式学习使用记录（一）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-05T11:19:13.000Z">
-<meta property="article:modified_time" content="2022-03-01T03:28:14.983Z">
+<meta property="article:modified_time" content="2022-03-01T03:28:14.000Z">
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="模式">
 <meta name="twitter:card" content="summary">
@@ -31,9 +31,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660512">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254308824">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660512">
+  <link rel="stylesheet" href="/css/style.css?v=1741254308824">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -215,7 +215,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -258,11 +258,13 @@
 <pre><code>a. CMakeLists.txt
   set(JASMIN_VERSION 新路径) 
 b. input/GYRE/namelist_cfg (之后可以在build中改)
-  nn_GYRE  resolution</code></pre>
+  nn_GYRE  resolution
+</code></pre>
 <p>step 3 - 进入 build 文件夹，执行 ~/jasmin4/bin/cmake ../<br>step 4 - 执行 make (make -j 50 多线程？)<br>step 5 - ./main2d ../input/nemo-2d.input  运行不完/测试时可 ctrl+c 中止<br>step 6 - ctrl+r teravap 查看数据 （/usr/local/teravap/teravap2_2_0.linux- x86_64/bin/teravap）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数据在 ./build/javis../dumps.javis 中，打开后 Add - Mesh , Draw。更换数据需要重启。</p>
 <p>修改完h文件后执行 step 4 </p>
 <p>虚拟机 mpi 运行</p>
-<pre><code>mpirun -n 4 ./main2d ../input/nemo-2d.input</code></pre>
+<pre><code>mpirun -n 4 ./main2d ../input/nemo-2d.input
+</code></pre>
 
   </article>
 
@@ -340,7 +342,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660516"></script>
+<script src="/js/app.js?v=1741254308830"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -380,7 +382,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

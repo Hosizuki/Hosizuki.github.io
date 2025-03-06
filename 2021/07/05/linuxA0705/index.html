@@ -21,7 +21,7 @@
 <meta property="og:description" content="这章是重点，圈起来- -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-05T13:51:36.000Z">
-<meta property="article:modified_time" content="2021-07-06T12:16:38.572Z">
+<meta property="article:modified_time" content="2021-07-06T12:16:38.000Z">
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -31,9 +31,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660631">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254308895">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660631">
+  <link rel="stylesheet" href="/css/style.css?v=1741254308895">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -215,7 +215,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -297,7 +297,8 @@
 </ul>
 <p><code>locale</code> 显示结果的语系变量<br>在 Linux 当中，通常说明仅设定 LANG 或 LC_ALL 这两个变量。如果发生一些乱码的问题，那么设定系统里面保有的语系编码， 例如： en_US 或 en_US.utf8 等等的设定，应该就 OK 的啦！</p>
 <pre><code> LANG=en_US.utf8; locale
- export LC_ALL=en_US.utf8; locale</code></pre>
+ export LC_ALL=en_US.utf8; locale
+</code></pre>
 <h3 id="read-array-declare"><a href="#read-array-declare" class="headerlink" title="read, array, declare"></a>read, array, declare</h3><p><code>read [-pt] variable</code> 读取用户输入变量<br>-p: 接提示字符<br>-t: 接等待秒数<br>read -p “Please keyin your name: “ -t 30 named</p>
 <p><code>declare [-aixr] variable</code> 声明变量类型<br>-a  ：数组 (array) 类型<br>-i  ：整数 (integer) 类型<br>-x  ：用法与 export 一样，就是将后面的 variable 变成环境变量；<br>-r  ：将变量设定成为 readonly 类型，该变量不可被更改内容，也不能 unset<br>declare -i sum=100+300+50<br>默认为字符串, 无浮点数.<br><code>+x</code>为取消动作. 但如果不小心将变量设定为『只读』，通常得要注销再登入才能复原该变量的类型了！ @_@</p>
 <p>数组类型: var[index]=content. 读取建议以<code>$&#123;var[1]&#125;</code>形式读取.</p>
@@ -419,23 +420,24 @@
 <h3 id="管线"><a href="#管线" class="headerlink" title="管线"></a>管线</h3><p>管线命令『 | 』仅能处理经由前面一个指令的 standard output 的信息，对于 stdandard error 并没有直接处理的能力。<br>管线命令必须要能够接受来自前一个指令的数据成为 standard input 继续处理才行。<br>如<code>ls -al /etc | less</code></p>
 <ol>
 <li>cut<br><code>cut -d &#39;分隔字符&#39; -f fields</code>, 用 -f 取出第几段的意思, 如 <code>echo $&#123;PATH&#125; | cut -d &#39;:&#39; -f 3,5</code><br><code>cut -c c 字符区间</code>, 如<code>export | cut -c 12-</code>.<br>cut 主要的用途在于将同一行里面的数据进行分解, 对多空格不友好</li>
-<li>grep<br>grep 是分析一行讯息， 若当中有我们所需要的信息，就将该行拿出来～<br>grep [-acinv] [–color=auto] ‘搜寻字符串’ filename<br>-a ：将 binary 文件以 text 文件的方式搜寻数据<br>-c ：计算找到 ‘搜寻字符串’ 的次数<br>-i ：忽略大小写的不同，所以大小写视为相同<br>-n ：顺便输出行号<br>-v ：反向选择，亦即显示出没有 ‘搜寻字符串’ 内容的那一行！ </li>
+<li>grep<br>grep 是分析一行讯息， 若当中有我们所需要的信息，就将该行拿出来～<br>grep [-acinv] [–color=auto] ‘搜寻字符串’ filename  </li>
 </ol>
+<p>  -a ：将 binary 文件以 text 文件的方式搜寻数据<br>  -c ：计算找到 ‘搜寻字符串’ 的次数<br>  -i ：忽略大小写的不同，所以大小写视为相同<br>  -n ：顺便输出行号<br>  -v ：反向选择，亦即显示出没有 ‘搜寻字符串’ 内容的那一行！ </p>
 <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ol>
-<li>sort  [-fbMnrtuk] [file or stdin]<br>-f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；<br>-b  ：忽略最前面的空格符部分；<br>-M  ：以月份的名字来排序，例如 JAN, DEC 等等的排序方法；<br>-n  ：使用『纯数字』进行排序(默认是以文字型态来排序的)；<br>-r  ：反向排序；<br>-u  ：就是 uniq ，相同的数据中，仅出现一行代表；<br>-t  ：分隔符，预设是用 [tab] 键来分隔；<br>-k  ：以那个区间 (field) 来进行排序的意思<br><code>/etc/passwd</code> 内容是以 : 来分隔的，以第三栏来排序则<code>cat /etc/passwd | sort -t &#39;:&#39; -k 3 -n</code></li>
-<li>uniq<br>-i  ：忽略大小写字符的不同；<br>-c  ：进行计数<br>如<code>last | cut -d &#39; &#39; -f1 | sort | uniq -c</code></li>
-<li>wc 统计信息(厕所?<br>-l  ：仅列出行；<br>-w  ：仅列出多少字(英文单字)；<br>-m  ：多少字符；</li>
+<li>sort  [-fbMnrtuk] [file or stdin]</li>
 </ol>
+<p>  -f  ：忽略大小写的差异，例如 A 与 a 视为编码相同；<br>  -b  ：忽略最前面的空格符部分；<br>  -M  ：以月份的名字来排序，例如 JAN, DEC 等等的排序方法；<br>  -n  ：使用『纯数字』进行排序(默认是以文字型态来排序的)；<br>  -r  ：反向排序；<br>  -u  ：就是 uniq ，相同的数据中，仅出现一行代表；<br>  -t  ：分隔符，预设是用 [tab] 键来分隔；<br>  -k  ：以那个区间 (field) 来进行排序的意思<br><code>/etc/passwd</code> 内容是以 : 来分隔的，以第三栏来排序则<code>cat /etc/passwd | sort -t &#39;:&#39; -k 3 -n</code><br>2. uniq<br>  -i  ：忽略大小写字符的不同；<br>  -c  ：进行计数<br>  如<code>last | cut -d &#39; &#39; -f1 | sort | uniq -c</code><br>3. wc 统计信息(厕所?<br>  -l  ：仅列出行；<br>  -w  ：仅列出多少字(英文单字)；<br>  -m  ：多少字符；</p>
 <h3 id="字符转换命令：-tr-col-join-paste-expand"><a href="#字符转换命令：-tr-col-join-paste-expand" class="headerlink" title="字符转换命令： tr, col, join, paste, expand"></a>字符转换命令： tr, col, join, paste, expand</h3><ol>
-<li><code>tr [-ds] SET1 ...</code><br>-d  ：删除讯息当中的 SET1 这个字符串；<br>-s  ：取代掉重复的字符！</li>
-<li><code>col [-xb]</code><br>-x  ：将 tab 键转换成对等的空格键</li>
-<li><code>join [-ti12] file1 file2</code>  两个文件当中，有 “相同key” 的那一行加在一起<br>-t ‘:’ ：join 默认以空格符分隔数据，并且比对『第一个字段』的数据， 如果两个文件相同，则将两笔数据联成一行，且第一个字段放在第一个！<br>-i  ：忽略大小写的差异；<br>-1 n ：这个是数字的 1 ，代表『第一个文件要用那个字段来分析』的意思；<br>-2 m ：代表『第二个文件要用那个字段来分析』的意思。<br>在使用 join 之前，你所需要处理的文件应该要事先经过排序 (sort) 处理！</li>
-<li><code>paste [-d] file1 file2</code> 将两行贴在一起，且中间以 [tab] 键隔开<br>-d  ：后面可以接分隔字符。预设是以 [tab] 来分隔的！ <ul>
+<li><code>tr [-ds] SET1 ...</code></li>
+</ol>
+<p>  -d  ：删除讯息当中的 SET1 这个字符串；<br>  -s  ：取代掉重复的字符！<br>2. <code>col [-xb]</code><br>  -x  ：将 tab 键转换成对等的空格键<br>3. <code>join [-ti12] file1 file2</code>  两个文件当中，有 “相同key” 的那一行加在一起<br>  -t ‘:’ ：join 默认以空格符分隔数据，并且比对『第一个字段』的数据， 如果两个文件相同，则将两笔数据联成一行，且第一个字段放在第一个！<br>  -i  ：忽略大小写的差异；<br>  -1 n ：这个是数字的 1 ，代表『第一个文件要用那个字段来分析』的意思；<br>  -2 m ：代表『第二个文件要用那个字段来分析』的意思。<br>  在使用 join 之前，你所需要处理的文件应该要事先经过排序 (sort) 处理！<br>4. <code>paste [-d] file1 file2</code> 将两行贴在一起，且中间以 [tab] 键隔开<br>  -d  ：后面可以接分隔字符。预设是以 [tab] 来分隔的！ </p>
+<ul>
 <li>  ：如果 file 部分写成 - ，表示来自 standard input 的资料的意思。’-‘ 可以替代 stdin 与 stdout </li>
 </ul>
-</li>
-<li><code>expand [-t] file</code> [tab] 按键转成空格键<br>-t  ：后面可以接数字。一般来说，一个 tab 按键可以用 8 个空格</li>
+<ol start="5">
+<li><code>expand [-t] file</code> [tab] 按键转成空格键</li>
 </ol>
+<p>  -t  ：后面可以接数字。一般来说，一个 tab 按键可以用 8 个空格</p>
 <h3 id="切割文件"><a href="#切割文件" class="headerlink" title="切割文件"></a>切割文件</h3><p><code>split  [-bl] file PREFIX</code> 将大文件分区成为小文件<br>  -b  ：后面可接欲分区成的文件大小，可加单位，例如 b, k, m 等；<br>  -l  ：以行数来进行分区。<br>  PREFIX ：代表前导符的意思，可作为分区文件的前导文字。<br>  合并则用 <code>cat PREFIX* file</code></p>
 <h3 id="参数代换：-xargs"><a href="#参数代换：-xargs" class="headerlink" title="参数代换： xargs"></a>参数代换： xargs</h3><p><code>xargs [-0epn] command </code><br>-0  ：如果输入的 stdin 含有特殊字符，例如 `, , 空格键等等字符时，这个 -0 参数<br>      可以将他还原成一般字符。这个参数可以用于特殊状态喔！<br>-e  ：这个是 EOF (end of file) 的意思。后面可以接一个字符串，当 xargs 分析到这个字符串时，<br>      就会停止继续工作！ -e’sync’ 是连在一起的，中间没有空格键。<br>-p  ：在执行每个指令的 argument 时，都会询问使用者的意思；<br>-n  ：后面接次数，每次 command 指令执行时，要使用几个参数的意思。<br>当 xargs 后面没有接任何的指令时，默认是以 echo 来进行输出喔！</p>
 <hr>
@@ -517,7 +519,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660635"></script>
+<script src="/js/app.js?v=1741254308897"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -557,7 +559,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

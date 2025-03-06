@@ -36,9 +36,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660874">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254309047">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660874">
+  <link rel="stylesheet" href="/css/style.css?v=1741254309047">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -220,7 +220,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -263,7 +263,8 @@
     <p>-登入系统- <span id="more"></span></p>
 <p>接下来就用Ubuntu14进行实验啦，先设置一下桌面配置，建个普通用户，密码wodemima！</p>
 <p>关闭桌面动画：</p>
-<pre><code>$ gsettings set org.gnome.desktop.interface enable-animations false</code></pre>
+<pre><code>$ gsettings set org.gnome.desktop.interface enable-animations false
+</code></pre>
 <img style="display: inline-block; width: 70%; max-width: 70%; height: auto;" src="1.png" />
 
 <p>用普通用户可以防止手残（ctrl+alt+prScrn 截图保存到主机桌面</p>
@@ -274,14 +275,16 @@
 <p>更改为英文语系：</p>
 <pre><code>$ LANG=en_US.utf8           //输出讯息改为英文
 $ LANGUAGE=en_US.utf8
-$ export LC_ALL=en_US.utf8  //其他信息</code></pre>
+$ export LC_ALL=en_US.utf8  //其他信息
+</code></pre>
 <p>注意<code>LANG=en_US.utf8</code>是连续输入的，等号两边并没有空格符喔！ 这样一来，就能够在『这次的登入』察看英文讯息啰！如果注销 Linux 后，刚刚下达的指令就没有用啦！可以用<code>locale</code>查看。<br>所以要怎样才能永久生效呢？</p>
 <p>如果想要让系统默认的语系变成英文的话，那么可以修改系统配置文件<code>/etc/locale.conf</code>，使 LANG 这个变量成为上述的内容即可。</p>
 <h3 id="命令输入："><a href="#命令输入：" class="headerlink" title="命令输入："></a>命令输入：</h3><p>一般格式为 command [-options] parameter1 parameter1 …<br>\ 后敲回车表示换行接着输入命令<br>选项设定（如帮助） -h 缩写， –help 完整名称。<br>某些情况选项也用+引导。</p>
 <p>举例：</p>
 <pre><code>$ date +%Y/%m/%d        //查看日期
 $ cal [month] [year]    //查看日历
-$ bc                    //计算器 scale=num设置小数点位数，quit退出</code></pre>
+$ bc                    //计算器 scale=num设置小数点位数，quit退出
+</code></pre>
 <p>快捷键：</p>
 <ul>
 <li>Tab键： 输入部分命令连按两次Tab，可以文件补齐或命令补全或参数/选项补齐。</li>
@@ -506,7 +509,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660878"></script>
+<script src="/js/app.js?v=1741254309049"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -546,7 +549,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

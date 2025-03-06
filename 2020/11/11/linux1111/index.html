@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://hosizuki.github.io/2020/11/11/linux1111/4.png">
 <meta property="og:image" content="https://hosizuki.github.io/2020/11/11/linux1111/ptt.jpg">
 <meta property="article:published_time" content="2020-11-11T03:17:58.000Z">
-<meta property="article:modified_time" content="2020-11-13T01:14:06.816Z">
+<meta property="article:modified_time" content="2020-11-13T01:14:06.000Z">
 <meta property="article:author" content="Hosizuki">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -38,9 +38,9 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/atom-one-dark.css">
 
-  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696694660884">
+  <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1741254309051">
   
-  <link rel="stylesheet" href="/css/style.css?v=1696694660884">
+  <link rel="stylesheet" href="/css/style.css?v=1741254309051">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="/live2d-widget/autoload.js"></script>
@@ -222,7 +222,7 @@
   <br> </br>
   </center>
     <div class="nexmoe-copyright">
-        &copy; 2023 Hosizuki
+        &copy; 2025 Hosizuki
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
         
@@ -273,10 +273,12 @@
 <h3 id="坑三"><a href="#坑三" class="headerlink" title="坑三"></a>坑三</h3><p>声卡报错。<code>A device ID has been used that is out of range for your system. 声音将中断。</code></p>
 <p>—— 解决办法是声音设置-声音控制面板-录制-启用Stereo Mix。然后回到VM连接声音即可！</p>
 <h3 id="坑四"><a href="#坑四" class="headerlink" title="坑四"></a>坑四</h3><p>VM12在WIN10上的复制文件功能可能会崩溃，小文件还行十几兆的就直接卡死。还是设置一下共享文件夹比较稳妥，目录在 <code>/mnt/hgfs/</code>。 另外还要运行一句话挂载文件夹</p>
-<pre><code>$ sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other</code></pre>
+<pre><code>$ sudo vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+</code></pre>
 <p>—— 不要使用复制粘贴/拖拽功能，使用文件共享。</p>
 <h3 id="警一"><a href="#警一" class="headerlink" title="警一"></a>警一</h3><p>虚拟机开机提示</p>
-<pre><code>Failed to initialize policy for cpu: 0 </code></pre>
+<pre><code>Failed to initialize policy for cpu: 0 
+</code></pre>
 <p>不知道咋回事，目前没影响。</p>
 <h3 id="最终"><a href="#最终" class="headerlink" title="最终"></a>最终</h3><p>大功告成！先玩一把麻将连连看。</p>
 <img style="display: inline-block; width: 70%; max-width: 70%; height: auto;" src="linux.jpg" />
@@ -372,7 +374,7 @@ var dsqjs = new DisqusJS({
 
 
 
-<script src="/js/app.js?v=1696694660888"></script>
+<script src="/js/app.js?v=1741254309054"></script>
 
 <script>
 	$(".justified-gallery").justifiedGallery({
@@ -412,7 +414,7 @@ var dsqjs = new DisqusJS({
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
